@@ -16,6 +16,29 @@ std::string convToLower(std::string src)
 std::set<std::string> parseStringToWords(string rawWords)
 {
 
+//XYZ
+
+  set<string> wordSet;
+  string word;
+  rawWords = convToLower(rawWords);
+  for(int i = 0; i < (int)rawWords.size(); ++i) //replaces all punctuation with spaces
+  {
+    if (ispunct(rawWords[i]))
+    {
+        rawWords[i] = ' ';
+    }
+  }
+
+  istringstream parseThis(rawWords);
+
+  while(parseThis >> word) //moves word by word, throws out all words less than 2 characters long.
+  {
+    if(word.size() >= 2)
+    {
+        wordSet.insert(word);
+    }
+  }
+  return wordSet;
 
 
 
